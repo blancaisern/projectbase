@@ -1,6 +1,7 @@
 package com.iesemilidarder.bisern.data;
 
-import com.sun.javafx.image.IntPixelGetter;
+import com.iesemilidarder.bisern.AppConstants;
+import com.iesemilidarder.bisern.exception.IESMyException;
 
 public abstract class Vehicle {
     public String getColor() {
@@ -19,6 +20,9 @@ public abstract class Vehicle {
     }
 
     public void setNumWheels(Integer numWheels) {
+        if(numWheels == null || numWheels > AppConstants.MAX_WHEELS) {
+            throw new IESMyException("Demasiadas ruedas nen!");
+        }
         this.numWheels = numWheels;
     }
 
